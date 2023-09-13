@@ -1,11 +1,9 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import imagePath from "../constants/imagePath";
-import { scale } from "react-native-size-matters";
-import { moderateScale, verticalScale } from "../styles/responsiveSize";
+import { moderateScale, scale, verticalScale } from "../styles/responsiveSize";
 import colors from "../styles/colors";
 
-const HeaderComponent = ({ profileImage, scanImage }) => {
+const HeaderComponent = ({ profileImage, scanImage, onPress }) => {
   return (
     <View style={styles.mainView}>
       <View style={styles.itemView}>
@@ -14,7 +12,7 @@ const HeaderComponent = ({ profileImage, scanImage }) => {
             <Image
               resizeMode="contain"
               source={profileImage}
-              style={styles.imageStyle}
+              style={styles.profileImageStyle}
             />
           )}
         </View>
@@ -25,13 +23,15 @@ const HeaderComponent = ({ profileImage, scanImage }) => {
         </View>
       </View>
       <View style={styles.scanView}>
-      {!!scanImage && 
-        <Image
-          source={scanImage}
-          style={styles.imageStyle}
-          resizeMode="contain"
-        />
-      }
+        <TouchableOpacity onPress={onPress}>
+          {!!scanImage && (
+            <Image
+              source={scanImage}
+              style={styles.imageStyle}
+              resizeMode="contain"
+            />
+          )}
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -50,8 +50,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   imageStyle: {
-    width: scale(32),
-    height: verticalScale(32),
+    width: scale(26),
+    height: verticalScale(26),
+  },
+  profileImageStyle: {
+    width: scale(36),
+    height: verticalScale(36),
   },
   profieImageStyle: {
     width: scale(32),
@@ -61,8 +65,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 40,
-    width: scale(35),
-    height: verticalScale(45),
+    width: scale(38),
+    height: verticalScale(48),
     borderWidth: moderateScale(0),
     backgroundColor: colors.darkSliver,
     padding: moderateScale(2),

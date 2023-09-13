@@ -1,26 +1,33 @@
 import { StyleSheet } from "react-native";
 import colors from "../../../styles/colors";
-import { textScale } from "../../../styles/responsiveSize";
+import {
+  moderateScale,
+  moderateScaleVertical,
+  textScale,
+} from "../../../styles/responsiveSize";
 import commonStyles from "../../../styles/commonStyles";
-import { moderateScale } from "react-native-size-matters";
 const homeStyle = StyleSheet.create({
-   mainView:{
-    backgroundColor:colors.gray2,
-    flex:1
-   },
-   textStles:{
-...commonStyles.fontSize26,
-    fontSize:textScale(26),
-    color:colors.black,
-    marginHorizontal:moderateScale(12)
-   },
-   discovertextStles:{
+  mainView: {
+    marginTop: moderateScale(12),
+  },
+  textStles: {
+    ...commonStyles.fontSize26,
+    fontSize: textScale(26),
+    color: colors.black,
+    marginHorizontal: moderateScale(12),
+  },
+  discovertextStles: {
     ...commonStyles.bold20,
-        // fontSize:textScale(26),
-        color:colors.black,
-        marginHorizontal:moderateScale(12),
-        marginTop:moderateScale(12  )
-       }
-    
-})
+    fontSize: textScale(26),
+    color: colors.black,
+    marginHorizontal: moderateScale(12),
+    marginTop: moderateScaleVertical(12),
+  },
+  alsoTextStles: {
+    ...commonStyles.regular13,
+    color: colors.darkSliver,
+    marginHorizontal: moderateScale(12),
+    marginTop: moderateScaleVertical(24),
+  },
+});
 export default homeStyle;

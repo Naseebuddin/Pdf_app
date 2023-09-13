@@ -13,15 +13,16 @@ export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
 export default function Home() {
   return (
     <WrapperContainer>
-      <View>
+      <View style={homeStyle.mainView}>
         <HeaderComponent
           profileImage={imagePath.profile}
-          scanImage={imagePath.bookmark}
+          scanImage={imagePath.scan}
         />
         <Text style={homeStyle.discovertextStles}>{strings.DISCOVER_TEXT}</Text>
         <Text style={homeStyle.textStles}>{strings.COLLECTIONOVE}</Text>
         <Text style={homeStyle.textStles}>{strings.IN_APP}</Text>
         <TextInputWithLable image={imagePath.search} />
+        <Text style={homeStyle.alsoTextStles}>{strings.ALSO_SEARCH}</Text>
       </View>
     </WrapperContainer>
   );

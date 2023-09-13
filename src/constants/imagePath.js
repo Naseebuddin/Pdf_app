@@ -5,4 +5,5 @@ export default {
   bookmark: require("./../assets/images/bookmark.png"),
   profile: require("./../assets/images/profle.png"),
   search: require("./../assets/images/search.png"),
+  scan: require("./../assets/images/scan.png"),
 };
