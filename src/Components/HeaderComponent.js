@@ -1,0 +1,82 @@
+import { Image, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import imagePath from "../constants/imagePath";
+import { scale } from "react-native-size-matters";
+import { moderateScale, verticalScale } from "../styles/responsiveSize";
+import colors from "../styles/colors";
+
+const HeaderComponent = ({ profileImage, scanImage }) => {
+  return (
+    <View style={styles.mainView}>
+      <View style={styles.itemView}>
+        <View style={styles.profileView}>
+          {!!profileImage && (
+            <Image
+              resizeMode="contain"
+              source={profileImage}
+              style={styles.imageStyle}
+            />
+          )}
+        </View>
+
+        <View>
+          <Text>hey Mile</Text>
+          <Text>Good Morning</Text>
+        </View>
+      </View>
+      <View style={styles.scanView}>
+      {!!scanImage && 
+        <Image
+          source={scanImage}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
+      }
+      </View>
+    </View>
+  );
+};
+
+export default HeaderComponent;
+
+const styles = StyleSheet.create({
+  mainView: {
+    marginTop: moderateScale(6),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    margin: moderateScale(1),
+  },
+  itemView: {
+    flexDirection: "row",
+  },
+  imageStyle: {
+    width: scale(32),
+    height: verticalScale(32),
+  },
+  profieImageStyle: {
+    width: scale(32),
+    height: verticalScale(32),
+  },
+  profileView: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 40,
+    width: scale(35),
+    height: verticalScale(45),
+    borderWidth: moderateScale(0),
+    backgroundColor: colors.darkSliver,
+    padding: moderateScale(2),
+    marginRight: moderateScale(8),
+  },
+  scanView: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 40,
+    width: scale(35),
+    height: verticalScale(45),
+    borderWidth: moderateScale(0.5),
+    backgroundColor: colors.chalkWhite,
+    padding: moderateScale(10),
+    marginRight: moderateScale(8),
+  },
+});
