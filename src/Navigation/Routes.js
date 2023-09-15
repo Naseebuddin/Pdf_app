@@ -4,13 +4,15 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainStack from './MainStack'
 import AuthStack from './AuthStack';
+import { useSelector } from 'react-redux';
 export default function Routes() {
     const Stack = createNativeStackNavigator();
-    const isLogin = false;
+   const userData  = useSelector(state=>state.stateData.isLogin);
+   console.log(userData,'router');
   return (
    <NavigationContainer>
    <Stack.Navigator screenOptions={{headerShown:false}}>
-{isLogin ? MainStack(Stack) : AuthStack(Stack)}
+{userData  ? MainStack(Stack) : AuthStack(Stack)}
     </Stack.Navigator>
    </NavigationContainer>
 
